@@ -4,7 +4,7 @@
   <groupId>ch.sbs</groupId>
   <artifactId>update-dtbook-metadata</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>0.1</version>
   <name>update-dtbook-metadata</name>
   <url>http://maven.apache.org</url>
   <properties>
