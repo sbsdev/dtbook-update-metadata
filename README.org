@@ -1,7 +1,4 @@
 #+title: update-dtbook-metadata
-#+date: <2019-05-16 Do>
-#+author: Christian Egli
-#+email: christian.egli@sbs.ch
 
 A tiny xml transformer that will update the meta data in your DTBook
 file and only that. No entity expansion, no anything! You get your
