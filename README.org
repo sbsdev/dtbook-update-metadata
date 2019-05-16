@@ -1,0 +1,39 @@
+#+title: update-dtbook-metadata
+#+date: <2019-05-16 Do>
+#+author: Christian Egli
+#+email: christian.egli@sbs.ch
+
+A tiny xml transformer that will update the meta data in your DTBook
+file and only that. No entity expansion, no anything! You get your
+original xml file back with the updated meta data.
+
+* Installation
+Clone and build with
+
+#+begin_example
+mvn clean package
+#+end_example
+
+* Usage
+
+#+begin_example
+java -DTITLE="New Title" -jar update-dtbook-metadata-1.0-jar-with-dependencies.jar original.xml > updated.xml
+#+end_example
+
+* Contributing
+If you have any improvements or comments please feel free to file a
+pull request or an issue.
+
+* Credits
+Based on ideas from https://stackoverflow.com/a/36097922,
+https://www.vogella.com/tutorials/JavaXML/article.html and most
+importantly how to disable entity expansion from
+https://stackoverflow.com/q/1777878.
+
+* License
+Copyright © 2019 [[https://www.sbs.ch/][Swiss Library for the Blind, Visually Impaired and
+Print Disabled]].
+
+Distributed under the [[http://www.gnu.org/licenses/gpl-3.0.html][GNU General Public License]]. See the file
+LICENSE.
+
