@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.sbs</groupId>
-  <artifactId>update-metadata</artifactId>
+  <artifactId>update-dtbook-metadata</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
-  <name>update-metadata</name>
+  <name>update-dtbook-metadata</name>
   <url>http://maven.apache.org</url>
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
