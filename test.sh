@@ -4,7 +4,7 @@
 # file and only that. No entity expansion, no anything! You get your
 # original xml file back with the updated meta data.
 
-JAR=target/update-dtbook-metadata-1.0-jar-with-dependencies.jar
+JAR=target/update-dtbook-metadata-0.1-jar-with-dependencies.jar
 XML=src/test/resources/xml/test.xml
 
-java -DTITLE="a very fancy new title" -jar $JAR $XML
+java -DDC.TITLE="a very fancy new title" -DDC.SUBJECT="a new subject" -DPROD.SERIESNUMBER=5 -jar $JAR $XML

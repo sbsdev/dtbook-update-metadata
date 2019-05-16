@@ -2,9 +2,6 @@ package ch.sbs;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventFactory;
@@ -18,30 +15,10 @@ import javax.xml.stream.events.XMLEvent;
 import org.apache.commons.io.input.BOMInputStream;
 
 public class MetaDataTransformer {
-	private static final Map<String, String> keys;
-	static {
-		Map<String, String> tmp = new HashMap<String, String>();
-		tmp.put("dc:Title", "TITLE");
-		tmp.put("dc:Creator", "CREATOR");
-		tmp.put("dc:Subject", "SUBJECT");
-		tmp.put("dc:Description", "DESCRIPTION");
-		tmp.put("dc:Publisher", "PUBLISHER");
-		tmp.put("dc:Date", "DATE");
-		tmp.put("dc:Type", "TYPE");
-		tmp.put("dc:Format", "FORMAT");
-		tmp.put("dc:Identifier", "IDENTIFIER");
-		tmp.put("dc:Source", "SOURCE");
-		tmp.put("dc:Language", "LANGUAGE");
-		tmp.put("dc:Rights", "RIGHTS");
-		tmp.put("dtb:uid", "UID");
-		tmp.put("dtb:sourceEdition", "SOURCEEDITION");
-		tmp.put("dtb:sourcePublisher", "SOURCEPUBLISHER");
-		tmp.put("dtb:sourceRights", "SOURCERIGHTS");
-		tmp.put("prod:series", "PRODSERIES");
-		tmp.put("prod:seriesNumber", "PRODSERIESNUMBER");
-		tmp.put("prod:source", "PRODSOURCE");
-		keys = Collections.unmodifiableMap(tmp);
-	}
+	private static final String[] keys = { "dc:Title", "dc:Creator", "dc:Subject", "dc:Description", "dc:Publisher",
+			"dc:Date", "dc:Type", "dc:Format", "dc:Identifier", "dc:Source", "dc:Language", "dc:Rights", "dtb:uid",
+			"dtb:sourceEdition", "dtb:sourcePublisher", "dtb:sourceRights", "prod:series", "prod:seriesNumber",
+			"prod:source" };
 
 	private static final String dtb = "http://www.daisy.org/z3986/2005/dtbook/";
 
@@ -55,7 +32,6 @@ public class MetaDataTransformer {
 		writer.add(eventFactory.createStartElement("", dtb, "meta"));
 		writer.add(eventFactory.createAttribute("name", name));
 		writer.add(eventFactory.createAttribute("content", value));
-
 	}
 
 	public static void main(String[] args) {
@@ -78,9 +54,10 @@ public class MetaDataTransformer {
 						&& event.asStartElement().getAttributeByName(metaName) != null) {
 					String name = event.asStartElement().getAttributeByName(metaName).getValue();
 					boolean found = false;
-					for (Map.Entry<String, String> entry : keys.entrySet()) {
-						if (name.equalsIgnoreCase(entry.getKey()) && System.getProperty(entry.getValue()) != null) {
-							changeAttribute(writer, eventFactory, name, System.getProperty(entry.getValue()));
+					for (String entry : keys) {
+						String propertyKey = entry.replace(':', '.').toUpperCase();
+						if (name.equalsIgnoreCase(entry) && System.getProperty(propertyKey) != null) {
+							changeAttribute(writer, eventFactory, name, System.getProperty(propertyKey));
 							found = true;
 							break;
 						}
