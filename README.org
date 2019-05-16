@@ -25,10 +25,8 @@ If you have any improvements or comments please feel free to file a
 pull request or an issue.
 
 * Credits
-Based on ideas from https://stackoverflow.com/a/36097922,
-https://www.vogella.com/tutorials/JavaXML/article.html and most
-importantly how to disable entity expansion from
-https://stackoverflow.com/q/1777878.
+Based on ideas on [[https://stackoverflow.com/a/36097922][how to make a StaX transformer]], a [[https://www.vogella.com/tutorials/JavaXML/article.html][Java and XML
+tutorial]] and most importantly on [[https://stackoverflow.com/q/1777878][how to disable entity expansion]].
 
 * License
 Copyright © 2019 [[https://www.sbs.ch/][Swiss Library for the Blind, Visually Impaired and
