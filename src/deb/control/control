@@ -1,0 +1,11 @@
+Package: [[name]]
+Version: [[version]]
+Section: misc
+Priority: optional
+Architecture: all
+Depends: jdk (>= 1.8)
+Maintainer: Christian Egli <christian.egli@sbs.ch>
+Description: A tiny xml transformer that will update the meta data in your DTBook and only that
+Distribution: development
+Depends: default-jre
+Homepage: https://github.com/sbsdev/update-dtbook-metadata
