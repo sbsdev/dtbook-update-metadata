@@ -31,6 +31,16 @@ public class MetaDataTransformer {
 		writer.add(eventFactory.createAttribute("content", value));
 	}
 
+	/**
+	 * A tiny xml transformer that will update the meta data in your
+	 * DTBook xml and only that. No entity expansion, no anything!
+	 * You get your original xml back with the updated meta data.
+	 *
+	 * Pass in the xml to be modified on stdin and get the updated xml
+	 * from stdout.
+	 *
+	 * @param args is ignored
+	 */
 	public static void main(String[] args) {
 		XMLInputFactory inputFactory = XMLInputFactory.newInstance();
 		inputFactory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES, false);
