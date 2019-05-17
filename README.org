@@ -2,7 +2,7 @@
 
 A tiny xml transformer that will update the meta data in your DTBook
 file and only that. No entity expansion, no anything! You get your
-original xml file back with the updated meta data.
+original xml back with the updated meta data.
 
 * Installation
 Clone and build with
@@ -20,7 +20,7 @@ https://github.com/qoomon/maven-git-versioning-extension#configure-extension).
 * Usage
 
 #+begin_example
-java -DDC.TITLE="New Title" -jar update-dtbook-metadata-1.0-jar-with-dependencies.jar original.xml > updated.xml
+java -DDC.TITLE="New Title" -jar update-dtbook-metadata-1.0-jar-with-dependencies.jar < original.xml > updated.xml
 #+end_example
 
 ** Valid meta data properties

@@ -1,8 +1,5 @@
 package ch.sbs;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventReader;
@@ -35,15 +32,12 @@ public class MetaDataTransformer {
 	}
 
 	public static void main(String[] args) {
-		if (args.length < 1) {
-			System.out.println("Usage: Specify XML File Name");
-			System.exit(1);
-		}
 		XMLInputFactory inputFactory = XMLInputFactory.newInstance();
 		inputFactory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES, false);
+		inputFactory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);
 
 		try {
-			XMLEventReader reader = inputFactory.createXMLEventReader(new BOMInputStream(new FileInputStream(args[0])));
+			XMLEventReader reader = inputFactory.createXMLEventReader(new BOMInputStream(System.in));
 			XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(System.out);
 			XMLEventFactory eventFactory = XMLEventFactory.newInstance();
 
@@ -72,10 +66,6 @@ public class MetaDataTransformer {
 
 			writer.flush();
 
-		} catch (
-
-		FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (XMLStreamException e) {
 			e.printStackTrace();
 		}
