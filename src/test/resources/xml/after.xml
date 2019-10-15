@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dtbook [
+  <!ENTITY charref "&#x2013;">
+  <!ENTITY ndash "&#x2013;">
+  <!ENTITY nbsp "&#x00A0;">
+  <!ENTITY csp "<brl:select><brl:when-braille/><brl:otherwise>&#x00A0;</brl:otherwise></brl:select>">
+]>
+<dtbook
+    xmlns="http://www.daisy.org/z3986/2005/dtbook/"
+    xmlns:brl="http://www.daisy.org/z3986/2009/braille/"
+    version="2005-3-sbs-minimal" xml:lang="de">
+  <head>
+    <meta name="dc:Title" content="Die Spionin der Charité"></meta>
+    <meta name="dc:Creator" content="Hardinghaus, Christian"></meta>
+    <meta name="dc:Subject" content=""></meta>
+    <meta name="dc:Description" content=""></meta>
+    <meta name="dc:Publisher"
+          content="SBS Schweizerische Bibliothek für Blinde, Seh- und Lesebehinderte"></meta>
+    <meta name="dc:Date" content="2019-04-10"></meta>
+    <meta name="dc:Type" content="Text"></meta>
+    <meta name="dc:Format" content="ANSI/NISO Z39.86-2005"></meta>
+    <meta name="dc:Identifier" content="ch-sbs-9754c823-a292-4c76-a5b7-45d107957795"></meta>
+    <meta name="dc:Source" content="978-3-95890-237-4"></meta>
+    <meta name="dc:Language" content="de"></meta>
+    <meta name="dc:Rights" content=""></meta>
+    <meta name="dtb:uid" content="ch-sbs-9754c823-a292-4c76-a5b7-45d107957795"></meta>
+    <meta name="dtb:sourceEdition" content="2019"></meta>
+    <meta name="dtb:sourcePublisher" content="a very new Publisher"></meta>
+    <meta name="dtb:sourceRights" content=""></meta>
+    <meta name="prod:series" content=""></meta>
+    <meta name="prod:seriesNumber" content=""></meta>
+    <meta name="prod:source" content=""></meta>
+  </head>
+   <book>
+      <frontmatter>
+	&nbsp;
+	&#xA0;
+	&charref;
+	&csp;
+	<!-- comment -->
+	x y z
+      </frontmatter>
+   </book>
+</dtbook>
