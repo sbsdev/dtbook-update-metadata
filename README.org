@@ -20,14 +20,11 @@ https://github.com/qoomon/maven-git-versioning-extension#configure-extension).
 * Usage
 
 #+begin_example
-java -DDC.TITLE="New Title" -jar update-dtbook-metadata-1.0-jar-with-dependencies.jar < original.xml > updated.xml
+java -Ddc:Title="New Title" -jar update-dtbook-metadata-1.0-jar-with-dependencies.jar < original.xml > updated.xml
 #+end_example
 
 ** Valid meta data properties
-The following meta data names are recognized. The corresponding Java
-System property can be derived by replacing the ~:~ with ~.~ and
-uppercasing the resulting string. So ~dc:Publisher~ can be set by
-using the ~DC.PUBLISHER~ system property.
+The following meta data names are recognized.
 
 - dc:Title
 - dc:Creator

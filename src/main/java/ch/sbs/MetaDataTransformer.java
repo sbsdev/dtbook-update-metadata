@@ -55,9 +55,8 @@ public class MetaDataTransformer {
 				String name = event.asStartElement().getAttributeByName(metaName).getValue();
 				boolean found = false;
 				for (String entry : keys) {
-					String propertyKey = entry.replace(':', '.').toUpperCase();
-					if (name.equalsIgnoreCase(entry) && env.getProperty(propertyKey) != null) {
-						changeAttribute(writer, eventFactory, name, env.getProperty(propertyKey));
+					if (name.equals(entry) && env.getProperty(entry) != null) {
+						changeAttribute(writer, eventFactory, name, env.getProperty(entry));
 						found = true;
 						break;
 					}

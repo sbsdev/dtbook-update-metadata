@@ -62,7 +62,7 @@ public class TransformerTest {
 
 	private ByteArrayOutputStream createTestDocument(InputStream in) throws XMLStreamException, FileNotFoundException {
 		Properties props = new Properties();
-		props.setProperty("DTB.SOURCEPUBLISHER", "a very new Publisher");
+		props.setProperty("dtb:sourcePublisher", "a very new Publisher");
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		MetaDataTransformer.transform(in, out, props);
 		return out;
