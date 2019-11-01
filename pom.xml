@@ -82,6 +82,12 @@
                     <prefix>/usr/share/java</prefix>
                   </mapper>
                 </data>
+		<data>
+                  <type>link</type>
+                  <linkName>/usr/share/java/${project.name}.jar</linkName>
+                  <linkTarget>/usr/share/java/${project.build.finalName}-jar-with-dependencies.jar</linkTarget>
+                  <symlink>true</symlink>
+		</data>
               </dataSet>
             </configuration>
           </execution>
