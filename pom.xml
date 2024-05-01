@@ -10,7 +10,7 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <xmlunit.version>2.6.3</xmlunit.version>
+    <xmlunit.version>2.10.0</xmlunit.version>
   </properties>
   <dependencies>
     <dependency>
