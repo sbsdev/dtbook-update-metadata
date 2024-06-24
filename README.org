@@ -1,4 +1,4 @@
-#+title: update-dtbook-metadata
+#+title: dtbook-update-metadata
 
 A tiny xml transformer that will update the meta data in your DTBook
 file and only that. No entity expansion, no anything! You get your
@@ -20,7 +20,7 @@ https://github.com/qoomon/maven-git-versioning-extension#configure-extension).
 * Usage
 
 #+begin_example
-java -Ddc:Title="New Title" -jar update-dtbook-metadata-1.0-jar-with-dependencies.jar < original.xml > updated.xml
+java -Ddc:Title="New Title" -jar dtbook-update-metadata-1.0-jar-with-dependencies.jar < original.xml > updated.xml
 #+end_example
 
 ** Valid meta data properties
@@ -55,7 +55,7 @@ Based on ideas on [[https://stackoverflow.com/a/36097922][how to make a StaX tra
 tutorial]] and most importantly on [[https://stackoverflow.com/q/1777878][how to disable entity expansion]].
 
 * License
-Copyright © 2019 [[https://www.sbs.ch/][Swiss Library for the Blind, Visually Impaired and
+Copyright © 2024 [[https://www.sbs.ch/][Swiss Library for the Blind, Visually Impaired and
 Print Disabled]].
 
 Distributed under the [[http://www.gnu.org/licenses/gpl-3.0.html][GNU General Public License]]. See the file
