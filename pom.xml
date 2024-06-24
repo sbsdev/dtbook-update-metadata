@@ -2,16 +2,43 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.sbs</groupId>
-  <artifactId>update-dtbook-metadata</artifactId>
-  <packaging>jar</packaging>
-  <version>0.1</version>
-  <name>update-dtbook-metadata</name>
-  <url>http://maven.apache.org</url>
+  <artifactId>dtbook-update-metadata</artifactId>
+  <version>0.7</version>
+
+  <name>dtbook-update-metadata</name>
+  <description></description>
+  <url>https://github.com/sbsdev/dtbook-update-metadata</url>
+
+  <scm>
+    <connection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</connection>
+    <developerConnection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</developerConnection>
+    <url>https://github.com/sbsdev/dtbook-update-metadata/tree/master</url>
+    <tag>HEAD</tag>
+  </scm>
+
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <xmlunit.version>2.10.0</xmlunit.version>
+    <maven.compiler.release>8</maven.compiler.release>
   </properties>
+
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License, Version 3</name>
+      <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Christian Egli</name>
+      <email>christian.egli@sbs.ch</email>
+      <organization>Swiss Library for the Blind, Visually Impaired and Print Disabled</organization>
+      <organizationUrl>http://www.sbs.ch/</organizationUrl>
+    </developer>
+  </developers>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -22,13 +49,13 @@
     <dependency>
       <groupId>org.xmlunit</groupId>
       <artifactId>xmlunit-core</artifactId>
-      <version>${xmlunit.version}</version>
+      <version>2.10.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.xmlunit</groupId>
       <artifactId>xmlunit-matchers</artifactId>
-      <version>${xmlunit.version}</version>
+      <version>2.10.0</version>
       <scope>test</scope>
   </dependency>
   <dependency>
@@ -37,61 +64,5 @@
       <version>2.7</version>
     </dependency>
   </dependencies>
-  <build>
-    <defaultGoal>package</defaultGoal>
-    <plugins>
-      <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-assembly-plugin</artifactId>
-	<executions>
-	  <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <archive>
-		<manifest>
-		  <mainClass>ch.sbs.MetaDataTransformer</mainClass>
-		</manifest>
-              </archive>
-              <descriptorRefs>
-		<descriptorRef>jar-with-dependencies</descriptorRef>
-              </descriptorRefs>
-            </configuration>
-	  </execution>
-	</executions>
-      </plugin>
-      <plugin>
-        <artifactId>jdeb</artifactId>
-        <groupId>org.vafer</groupId>
-        <version>1.7</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>jdeb</goal>
-            </goals>
-            <configuration>
-              <dataSet>
-                <data>
-                  <src>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</src> -->
-                  <type>file</type>
-                  <mapper>
-                    <type>perm</type>
-                    <prefix>/usr/share/java</prefix>
-                  </mapper>
-                </data>
-		<data>
-                  <type>link</type>
-                  <linkName>/usr/share/java/${project.name}.jar</linkName>
-                  <linkTarget>/usr/share/java/${project.build.finalName}-jar-with-dependencies.jar</linkTarget>
-                  <symlink>true</symlink>
-		</data>
-              </dataSet>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build></project>
+
+</project>
