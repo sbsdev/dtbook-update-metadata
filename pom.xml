@@ -6,15 +6,8 @@
   <version>0.7</version>
 
   <name>dtbook-update-metadata</name>
-  <description></description>
+  <description>A tiny xml transformer to update the meta data in your DTBook file</description>
   <url>https://github.com/sbsdev/dtbook-update-metadata</url>
-
-  <scm>
-    <connection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</connection>
-    <developerConnection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</developerConnection>
-    <url>https://github.com/sbsdev/dtbook-update-metadata/tree/master</url>
-    <tag>HEAD</tag>
-  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,6 +31,13 @@
       <organizationUrl>http://www.sbs.ch/</organizationUrl>
     </developer>
   </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</connection>
+    <developerConnection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</developerConnection>
+    <url>https://github.com/sbsdev/dtbook-update-metadata/tree/master</url>
+    <tag>HEAD</tag>
+  </scm>
 
   <dependencies>
     <dependency>
