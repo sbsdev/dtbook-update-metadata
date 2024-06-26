@@ -11,11 +11,11 @@ Clone and build with
 mvn clean package
 #+end_example
 
-** Versioning
-The maven build uses the [[https://github.com/qoomon/maven-git-versioning-extension][maven-git-versioning-extension]] which will
-label the build artifacts accordingly. In order for this to work you
-will have to tag the source and checkout this tag before building (see
-https://github.com/qoomon/maven-git-versioning-extension#configure-extension).
+* Deploy to Maven Central
+
+#+begin_example
+mvn clean deploy
+#+end_example
 
 * Usage
 
