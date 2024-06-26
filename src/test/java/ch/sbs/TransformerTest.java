@@ -17,7 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.Source;
@@ -40,11 +39,11 @@ public class TransformerTest {
 	private static final String RESOURCES_XML_TEST_AFTER_XML = "src/test/resources/xml/after.xml";
 
 	private static final Map<String, String> prefix2Uri = new HashMap<String, String>();
-	private static final Properties defaultProps = new Properties();
+	private static final HashMap defaultProps = new HashMap();
 
 	static {
 		prefix2Uri.put(DTBOOK_NAMESPACE_PREFIX, DTBOOK_NAMESPACE_URI);
-		defaultProps.setProperty("dtb:sourcePublisher", "a very new Publisher");
+		defaultProps.put("dtb:sourcePublisher", "a very new Publisher");
 	}
 
 	@Test
@@ -61,7 +60,7 @@ public class TransformerTest {
 		assertEquals(originalDoctype, updatedDoctype);
 	}
 
-	private ByteArrayOutputStream createTestDocument(InputStream in, Properties env)
+	private ByteArrayOutputStream createTestDocument(InputStream in, Map env)
 			throws XMLStreamException, FileNotFoundException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		MetaDataTransformer.transform(in, out, env);
@@ -133,7 +132,7 @@ public class TransformerTest {
 	@Test
 	public void testLanguage() throws XMLStreamException, IOException {
 		String expectedLang = "fr";
-		Properties env = new Properties();
+		HashMap env = new HashMap();
 		env.put("dc:Language", expectedLang);
 		Source source = Input.fromStream(new ByteArrayInputStream(
 				createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML)), env).toByteArray()))
@@ -147,7 +146,7 @@ public class TransformerTest {
 	@Test
 	public void testMetaLanguage() throws XMLStreamException, IOException {
 		String expectedLang = "fr";
-		Properties env = new Properties();
+		HashMap env = new HashMap();
 		env.put("dc:Language", expectedLang);
 		Source source = Input.fromStream(new ByteArrayInputStream(
 				createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML)), env).toByteArray()))

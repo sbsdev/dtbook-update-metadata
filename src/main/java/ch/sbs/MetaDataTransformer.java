@@ -3,7 +3,9 @@ package ch.sbs;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -21,7 +23,11 @@ import javax.xml.stream.events.XMLEvent;
 
 import org.apache.commons.io.input.BOMInputStream;
 
+/**
+ * A simple transformer to update DTBook meta data
+ */
 public class MetaDataTransformer {
+
 	/**
 	 * Valid meta data keys.
 	 */
@@ -68,7 +74,7 @@ public class MetaDataTransformer {
 	 * @throws XMLStreamException
 	 * 
 	 */
-	public static void transform(InputStream in, OutputStream out, Properties env) throws XMLStreamException {
+	public static void transform(InputStream in, OutputStream out, Map<String,String> env) throws XMLStreamException {
 		XMLInputFactory inputFactory = XMLInputFactory.newInstance();
 		inputFactory.setProperty(XMLInputFactory.IS_REPLACING_ENTITY_REFERENCES, false);
 		inputFactory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);
@@ -77,7 +83,7 @@ public class MetaDataTransformer {
 		XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(out);
 		XMLEventFactory eventFactory = XMLEventFactory.newInstance();
 
-		String language = env.getProperty("dc:Language");
+		String language = env.get("dc:Language");
 
 		Set<String> seen = new HashSet<String>();
 
@@ -112,8 +118,8 @@ public class MetaDataTransformer {
 
 				boolean newValueGiven = false;
 				for (String entry : keys) {
-					if (name.equals(entry) && env.getProperty(entry) != null) {
-						changeMetaAttribute(writer, eventFactory, name, env.getProperty(entry));
+					if (name.equals(entry) && env.get(entry) != null) {
+						changeMetaAttribute(writer, eventFactory, name, env.get(entry));
 						newValueGiven = true;
 						break;
 					}
@@ -128,7 +134,7 @@ public class MetaDataTransformer {
 					if (!seen.contains(key)) {
 						writer.add(eventFactory.createStartElement("", dtb, "meta"));
 						writer.add(eventFactory.createAttribute("name", key));
-						writer.add(eventFactory.createAttribute("content", env.getProperty(key, "")));
+						writer.add(eventFactory.createAttribute("content", env.getOrDefault(key, "")));
 						writer.add(eventFactory.createEndElement("", dtb, "meta"));
 					}
 				}
@@ -155,7 +161,12 @@ public class MetaDataTransformer {
 	 * @throws XMLStreamException
 	 */
 	public static void main(String[] args) throws XMLStreamException {
-		transform(System.in, System.out, System.getProperties());
+	    Properties properties = System.getProperties();
+	    HashMap<String, String> metadata = new HashMap<>();
+	    for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+		metadata.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+	    }
+	    transform(System.in, System.out, metadata);
 	}
 
 }
