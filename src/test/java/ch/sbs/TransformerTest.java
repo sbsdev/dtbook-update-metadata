@@ -156,4 +156,18 @@ public class TransformerTest {
 	String language = xpath.evaluate("/dtb:dtbook/dtb:head/dtb:meta[@name='dc:Language']/@content", source);
 	assert expectedLang.equals(language);
     }
+
+    @Test
+    public void testEmptyMap() throws XMLStreamException, IOException {
+	HashMap empty = new HashMap();
+	Source source = Input.fromStream(new ByteArrayInputStream(
+								  createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML)), empty)
+								  .toByteArray()))
+	    .build();
+	XPathEngine xpath = new JAXPXPathEngine();
+	xpath.setNamespaceContext(prefix2Uri);
+	String content = xpath.evaluate("/dtb:dtbook/dtb:head/dtb:meta[@name='dc:Title']/@content", source);
+	assert "Die Spionin der Charité".equals(content);
+    }
+
 }
