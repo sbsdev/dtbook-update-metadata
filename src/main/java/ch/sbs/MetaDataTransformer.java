@@ -80,7 +80,7 @@ public class MetaDataTransformer {
 	inputFactory.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);
 
 	XMLEventReader reader = inputFactory.createXMLEventReader(new BOMInputStream(in));
-	XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(out);
+	XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(out, "UTF-8");
 	XMLEventFactory eventFactory = XMLEventFactory.newInstance();
 
 	String language = env.get("dc:Language");
