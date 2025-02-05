@@ -94,6 +94,26 @@ public class TransformerTest {
     }
 
     @Test
+    public void testSourceDate() throws XMLStreamException, IOException {
+	Source source = Input.fromStream(new ByteArrayInputStream(
+								  createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML)), defaultProps)
+								  .toByteArray()))
+	    .build();
+	XPathEngine xpath = new JAXPXPathEngine();
+	xpath.setNamespaceContext(prefix2Uri);
+	String content = xpath.evaluate("/dtb:dtbook/dtb:head/dtb:meta[@name='dtb:sourceDate']/@content", source);
+	assert "2025-02-05".equals(content);
+
+	HashMap props = new HashMap();
+	props.put("dtb:sourceDate", "2025-07-06");
+
+	source = Input.fromStream(new ByteArrayInputStream(createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML)), props).toByteArray()))
+	    .build();
+	content = xpath.evaluate("/dtb:dtbook/dtb:head/dtb:meta[@name='dtb:sourceDate']/@content", source);
+	assert "2025-07-06".equals(content);
+    }
+
+    @Test
     public void testProdSeries() throws XMLStreamException, IOException {
 	Source source = Input.fromStream(new ByteArrayInputStream(
 								  createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML_NO_SERIES)), defaultProps)

@@ -33,8 +33,8 @@ public class MetaDataTransformer {
      */
     public static final String[] keys = { "dc:Title", "dc:Creator", "dc:Subject", "dc:Description", "dc:Publisher",
 					  "dc:Date", "dc:Type", "dc:Format", "dc:Identifier", "dc:Source", "dc:Language", "dc:Rights", "dtb:uid",
-					  "dtb:sourceEdition", "dtb:sourcePublisher", "dtb:sourceRights", "prod:series", "prod:seriesNumber",
-					  "prod:source" };
+					  "dtb:sourceEdition", "dtb:sourcePublisher", "dtb:sourceRights", "dtb:sourceDate",
+					  "prod:series", "prod:seriesNumber", "prod:source" };
     /**
      * Valid production meta data keys. If any of those keys are missing in the meta
      * data of the input XML they will be added.
