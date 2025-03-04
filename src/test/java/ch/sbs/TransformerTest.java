@@ -36,6 +36,7 @@ public class TransformerTest {
 
     private static final String RESOURCES_XML_TEST_BEFORE_XML = "src/test/resources/xml/before.xml";
     private static final String RESOURCES_XML_TEST_BEFORE_XML_NO_SERIES = "src/test/resources/xml/before_no_series.xml";
+    private static final String RESOURCES_XML_TEST_BEFORE_XML_NO_SOURCE_DATE = "src/test/resources/xml/before_no_source_date.xml";
     private static final String RESOURCES_XML_TEST_AFTER_XML = "src/test/resources/xml/after.xml";
 
     private static final Map<String, String> prefix2Uri = new HashMap<String, String>();
@@ -108,6 +109,26 @@ public class TransformerTest {
 	props.put("dtb:sourceDate", "2025-07-06");
 
 	source = Input.fromStream(new ByteArrayInputStream(createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML)), props).toByteArray()))
+	    .build();
+	content = xpath.evaluate("/dtb:dtbook/dtb:head/dtb:meta[@name='dtb:sourceDate']/@content", source);
+	assert "2025-07-06".equals(content);
+    }
+
+    @Test
+    public void testAddSourceDate() throws XMLStreamException, IOException {
+	Source source = Input.fromStream(new ByteArrayInputStream(
+								  createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML_NO_SOURCE_DATE)), defaultProps)
+								  .toByteArray()))
+	    .build();
+	XPathEngine xpath = new JAXPXPathEngine();
+	xpath.setNamespaceContext(prefix2Uri);
+	String content = xpath.evaluate("/dtb:dtbook/dtb:head/dtb:meta[@name='dtb:sourceDate']/@content", source);
+	assert "".equals(content);
+
+	HashMap props = new HashMap();
+	props.put("dtb:sourceDate", "2025-07-06");
+
+	source = Input.fromStream(new ByteArrayInputStream(createTestDocument(new FileInputStream(new File(RESOURCES_XML_TEST_BEFORE_XML_NO_SOURCE_DATE)), props).toByteArray()))
 	    .build();
 	content = xpath.evaluate("/dtb:dtbook/dtb:head/dtb:meta[@name='dtb:sourceDate']/@content", source);
 	assert "2025-07-06".equals(content);

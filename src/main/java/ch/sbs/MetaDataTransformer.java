@@ -39,7 +39,7 @@ public class MetaDataTransformer {
      * Valid production meta data keys. If any of those keys are missing in the meta
      * data of the input XML they will be added.
      */
-    public static final String[] productionKeys = { "prod:series", "prod:seriesNumber", "prod:source" };
+    public static final String[] productionKeys = { "prod:series", "prod:seriesNumber", "prod:source", "dtb:sourceDate" };
 
     private static final String dtb = "http://www.daisy.org/z3986/2005/dtbook/";
     private static final String xml = "http://www.w3.org/XML/1998/namespace";
