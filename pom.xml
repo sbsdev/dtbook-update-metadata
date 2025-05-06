@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.sbs</groupId>
   <artifactId>dtbook-update-metadata</artifactId>
-  <version>0.12</version>
+  <version>0.13-SNAPSHOT</version>
 
   <name>dtbook-update-metadata</name>
   <description>A tiny xml transformer to update the meta data in your DTBook file</description>
