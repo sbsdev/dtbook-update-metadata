@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.sbs</groupId>
   <artifactId>dtbook-update-metadata</artifactId>
-  <version>0.13-SNAPSHOT</version>
+  <version>0.13</version>
 
   <name>dtbook-update-metadata</name>
   <description>A tiny xml transformer to update the meta data in your DTBook file</description>
@@ -36,7 +35,7 @@
     <connection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</connection>
     <developerConnection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</developerConnection>
     <url>https://github.com/sbsdev/dtbook-update-metadata/tree/master</url>
-    <tag>HEAD</tag>
+    <tag>dtbook-update-metadata-0.13</tag>
   </scm>
 
   <distributionManagement>
