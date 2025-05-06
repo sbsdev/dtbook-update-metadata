@@ -11,11 +11,15 @@ Clone and build with
 mvn clean package
 #+end_example
 
-* Deploy to Maven Central
+* Release
 
-#+begin_example
-mvn clean deploy
-#+end_example
+Updates the version number in the pom and deploys the artifacts to
+Maven Central
+
+#+begin_src shell
+  mvn release:clean release:prepare
+  mvn release:perform
+#+end_src
 
 * Usage
 
