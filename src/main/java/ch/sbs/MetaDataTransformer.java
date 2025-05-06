@@ -71,7 +71,7 @@ public class MetaDataTransformer {
      * @param out an OutputStream containing possibly updated DTBook XML
      * @param env a map of meta data. For any given value the key is updated in the
      *            DTBook XML
-     * @throws XMLStreamException
+     * @throws XMLStreamException in case of an unexpected XML processing error
      * 
      */
     public static void transform(InputStream in, OutputStream out, Map<String, String> env) throws XMLStreamException {
@@ -156,7 +156,7 @@ public class MetaDataTransformer {
      * Pass in the xml to be modified on stdin and get the updated xml from stdout.
      *
      * @param args is ignored
-     * @throws XMLStreamException
+     * @throws XMLStreamException in case of an unexpected XML processing error
      */
     public static void main(String[] args) throws XMLStreamException {
 	Properties properties = System.getProperties();
