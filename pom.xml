@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.sbs</groupId>
   <artifactId>dtbook-update-metadata</artifactId>
-  <version>0.15-SNAPSHOT</version>
+  <version>0.15</version>
 
   <name>dtbook-update-metadata</name>
   <description>A tiny xml transformer to update the meta data in your DTBook file</description>
@@ -36,7 +36,7 @@
     <connection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</connection>
     <developerConnection>scm:git:git@github.com:sbsdev/dtbook-update-metadata.git</developerConnection>
     <url>https://github.com/sbsdev/dtbook-update-metadata/tree/master</url>
-    <tag>HEAD</tag>
+    <tag>v0.15</tag>
   </scm>
 
   <distributionManagement>
